@@ -1,0 +1,18 @@
+.card {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  border: 1px solid;
+  box-shadow: 2px 2px rgb(228, 179, 3);
+}
+a {
+  text-decoration: none;
+}
+
+.card-hover {
+  transition: transform 0.2s;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+}

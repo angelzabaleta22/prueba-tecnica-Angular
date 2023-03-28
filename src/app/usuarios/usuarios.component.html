@@ -1,0 +1,103 @@
+<main class="vh-100 text-black background-image">
+  " >
+  <button type="button" class="btn btn-dark log-out" (click)="logout()">
+    Cerrar sesión
+  </button>
+  <div class="titleR container p-4 col-md-4 text-white">
+    <button type="button" class="btn btn-primary float-end" routerLink="">
+      Inicio
+    </button>
+    <h3>USUARIOS REGISTRADOS</h3>
+  </div>
+  <div class="infoUsuario container p-4 col-md-4 offset-md-">
+    <table
+      class="table table-dark table-striped table-bordered border-secondary border"
+    >
+      <div *ngIf="usuarios && usuarios.length > 0">
+        <th
+          *ngFor="let usuario of usuarios"
+          class="d-flex justify-content-between"
+        >
+          {{ usuario.nombre }}
+          <button
+            type="button"
+            class="btn btn-success btn-sm float-right"
+            (click)="verUsuario(usuario.uid)"
+          >
+            Ver Usuario
+          </button>
+        </th>
+      </div>
+    </table>
+    <p *ngIf="!(usuarios && usuarios.length > 0)">
+      No hay usuarios disponibles.
+    </p>
+    <div class="pagination">
+      <button
+        [disabled]="paginaActual === 1"
+        (click)="cambiarPagina(paginaActual - 1)"
+        type="button"
+        class="btn btn-dark"
+      >
+        Anterior
+      </button>
+      <button
+        [disabled]="paginaActual === totalPaginas"
+        (click)="cambiarPagina(paginaActual + 1)"
+        class="btn btn-dark btn-next"
+      >
+        Siguiente
+      </button>
+    </div>
+  </div>
+</main>
+
+<main class="vh-60 text-black background-image">
+  <div class="title container p-4 col-md-4 offset-md- bg-gray text-white">
+    <h3>CREAR UN USUARIO</h3>
+  </div>
+
+  <div class="form-container text-white">
+    <form (ngSubmit)="crearUsuario()" *ngIf="nuevoUsuario">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          placeholder="Escribe tu nombre"
+          maxlength="30"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          required
+          [(ngModel)]="nuevoUsuario.nombre"
+        />
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input
+          type="email"
+          maxlength="50"
+          placeholder="ejemplo@hotmail.com"
+          class="form-control"
+          id="correo"
+          name="correo"
+          required
+          [(ngModel)]="nuevoUsuario.correo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input
+          type="password"
+          placeholder="La contraseña debe tener al menos 6 caracteres"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+          [(ngModel)]="nuevoUsuario.password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Crear usuario</button>
+    </form>
+  </div>
+</main>

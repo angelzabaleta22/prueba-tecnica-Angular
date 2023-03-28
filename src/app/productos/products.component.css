@@ -1,0 +1,62 @@
+.productsInfo {
+  background-image: url("../../assets/images/pexels-vincent-ma-janssen-1310777.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.corner-btn {
+  position: absolute;
+  top: 0;
+  left: 3vh;
+  margin: 10px;
+  z-index: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: white;
+}
+
+thead th {
+  text-align: center;
+}
+
+tbody {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+tbody td:not(.actions) {
+  opacity: 1;
+}
+
+tbody td {
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  padding: 1px;
+}
+
+.actions button {
+  opacity: 1;
+}
+
+th[colspan="10"] {
+  font-size: 4em;
+  text-shadow: 3px 3px #000000;
+}
+
+th {
+  font-size: 2em;
+  text-shadow: 2px 2px #000000;
+}
+
+.title {
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+}
+
+button {
+  margin-right: 10px;
+}

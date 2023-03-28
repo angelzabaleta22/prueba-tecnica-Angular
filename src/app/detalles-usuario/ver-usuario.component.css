@@ -1,0 +1,39 @@
+.custom-border {
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.title {
+  text-align: center;
+}
+
+.card-title {
+  border-radius: 10px;
+  border: 0.2px solid gray;
+  background-color: rgb(251, 243, 243);
+  text-align: center;
+  padding: 1vh;
+  width: 100%;
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-text {
+  border-radius: 6px;
+  border: 0.2px solid gray;
+  background-color: rgb(251, 243, 243);
+  padding: 0.3vh;
+  width: 100%;
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+.userInfo {
+  background-image: url("../../assets/images/fondo.userIfo.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.log-out {
+  margin-right: 4vh;
+  margin-top: 2vh;
+  float: right;
+}

@@ -1,0 +1,49 @@
+<!-- Componente LandingPage -->
+<div
+  class="landing-page vh-100"
+  style="
+    background-image: url('../../assets/images/jumbotron_1200.jpg');
+    background-size: cover;
+  "
+>
+  <div class="container">
+    <h1 style="color: white; text-shadow: 2px 2px rgb(1, 1, 1)">Bienvenido</h1>
+    <p style="color: white; text-shadow: 2px 2px rgb(1, 1, 1)">
+      Seleccione una sección:
+    </p>
+    <div class="row">
+      <div class="col-sm-4">
+        <a routerLink="/categorias">
+          <div class="card card-hover transition">
+            <div class="card-body">
+              <h5 class="card-title">Categorías</h5>
+              <p class="card-text">Administre las categorías de productos</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a routerLink="/productos">
+          <div class="card card-hover transition">
+            <div class="card-body">
+              <h5 class="card-title">Productos</h5>
+              <p class="card-text">Administre los productos</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a routerLink="/login">
+          <div class="card card-hover transition">
+            <div class="card-body">
+              <h5 class="card-title">Usuarios</h5>
+              <p class="card-text">
+                Administre los usuarios: <strong>¡Debes iniciar cesión!</strong>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

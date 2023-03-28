@@ -1,0 +1,38 @@
+<div class="corner-btn">
+  <button class="btn btn-warning" (click)="volver()">Atrás</button>
+</div>
+
+<table class="productsInfo">
+  <thead>
+    <tr>
+      <th colspan="10" class="title">PRODUCTOS</th>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Categoría</th>
+      <th>Usuario</th>
+      <th class="actions">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>
+        <input type="text" [(ngModel)]="producto.nombre" />
+      </td>
+      <td><input type="text" [(ngModel)]="producto.precio" /></td>
+      <td><input type="text" [(ngModel)]="producto.categoria" /></td>
+      <td><input type="text" [(ngModel)]="producto.usuario" /></td>
+      <td>
+        <button class="btn btn-primary" (click)="guardarCambios(producto)">
+          Guardar
+        </button>
+
+        <button class="btn btn-success" (click)="cancelarCambios()">
+          Cancelar
+        </button>
+        <button class="btn btn-danger">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

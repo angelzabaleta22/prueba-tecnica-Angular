@@ -1,0 +1,48 @@
+.infoUsuario {
+  border: 1px solid black;
+  background-color: rgba(80, 206, 7, 0.507);
+}
+
+.title {
+  text-align: center;
+  margin-top: -25vh;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.titleR {
+  text-align: center;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.form-container {
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  margin-top: -30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+form {
+  max-width: 500px;
+  width: 60%;
+}
+
+.background-image {
+  background-image: url("../../assets/images/jumbotron_1200.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.log-out {
+  margin-right: 4vh;
+  margin-top: 2vh;
+  float: right;
+}
+.btn-next {
+  margin-left: 20vh;
+}
+
+.btn-dark {
+  margin-left: 12vh;
+}
