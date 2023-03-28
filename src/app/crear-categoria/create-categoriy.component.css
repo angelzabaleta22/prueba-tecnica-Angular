@@ -1,4 +1,4 @@
-.categorieInfo {
+.create-categorieInfo {
   background-image: url("../../assets/images/Categorias.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -6,7 +6,7 @@
 }
 
 .form {
-  height: 55vh;
+  height: 10vh;
 }
 
 .corner-btn {
@@ -18,10 +18,11 @@
 }
 
 table {
-  width: 100%;
+  width: 40%;
   border-collapse: collapse;
   text-align: center;
   color: white;
+  margin-left: 50vh;
 }
 
 thead th {
@@ -56,11 +57,19 @@ th {
   text-shadow: 2px 2px #000000;
 }
 
-.title {
-  padding-top: 5vh;
+th.title {
+  padding-left: 35vh;
+  text-align: center;
+  color: white;
+  padding-top: 10vh;
   padding-bottom: 10vh;
 }
 
-button {
-  margin-right: 10px;
+.bt1 {
+  margin-left: 2vh;
+  float: left;
+}
+.bt2 {
+  margin-right: 2vh;
+  float: right;
 }

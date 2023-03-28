@@ -35,7 +35,7 @@
           <select
             (click)="obtenerCatergorias()"
             #selectCategoria
-            (change)="nuevoProducto.categoria = selectCategoria.value"
+            [(ngModel)]="nuevoProducto.categoria"
           >
             <option value="" disabled selected>Selecciona una categoría</option>
             <option

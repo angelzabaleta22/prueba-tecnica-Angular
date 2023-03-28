@@ -1,1 +1,38 @@
-<p>Lo siento, no alcancé. 😭</p>
+<div class="corner-btn">
+  <button class="btn btn-warning" (click)="volver()">Atrás</button>
+</div>
+<div class="categorieInfo">
+  <table>
+    <thead>
+      <th colspan="10" class="title">CATEGORÍAS EXISTENTES</th>
+
+      <tr>
+        <th>Nombre</th>
+        <th>Usuario</th>
+
+        <th class="actions">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="form">
+      <tr *ngFor="let categoria of categorias">
+        <td>
+          <input input type="text" [(ngModel)]="categoria.nombre" />
+        </td>
+        <td>
+          <input input type="text" [(ngModel)]="categoria.usuario" disabled />
+        </td>
+        <td class="actions">
+          <button class="btn btn-primary" (click)="guardarCambios(categoria)">
+            Guardar
+          </button>
+          <button class="btn btn-success" (click)="cancelarCambios()">
+            Cancelar
+          </button>
+          <button class="btn btn-danger" (click)="eliminarProducto(categoria)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
