@@ -30,7 +30,7 @@ export class CreateProductComponent {
     if (!userId || !token) {
       this.router.navigate(['/login']);
     } else {
-      this.crearProducto();
+      this.obtenerCatergorias();
     }
   }
 
