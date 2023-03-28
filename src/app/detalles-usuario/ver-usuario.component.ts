@@ -73,7 +73,7 @@ export class VerUsuarioComponent implements OnInit {
       usuario.estado = false;
       this.updateUser.actualizarUsuario(usuario.uid, usuario).subscribe(
         (res: any) => {
-          console.log(`Usuario ${usuario.nombre} eliminado`);
+          alert(`Usuario ${usuario.nombre} eliminado`);
           this.router.navigate(['/usuarios']);
         },
         (err: any) => {

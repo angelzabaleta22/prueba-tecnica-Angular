@@ -16,3 +16,7 @@ a {
 .card-hover:hover {
   transform: translateY(-6px);
 }
+
+.second-row {
+  margin-top: 5vh;
+}

@@ -11,6 +11,8 @@ interface Producto {
   precio: number;
   categoria: string;
   usuario: string;
+  categoriId: string;
+  usuarioId: string;
 }
 
 @Component({
@@ -48,7 +50,9 @@ export class ProductsComponent implements OnInit {
           return {
             ...producto,
             categoria: producto.categoria.nombre,
+            categoriId: producto.categoria._id,
             usuario: producto.usuario.nombre,
+            usuarioId: producto.usuario._id,
           };
         });
         this.productos = productos;
@@ -66,27 +70,23 @@ export class ProductsComponent implements OnInit {
   guardarCambios(producto: Producto) {
     const url = `${this.apiUrl}/productos/${producto._id}`;
     const token = localStorage.getItem('token');
+
     const headers = new HttpHeaders().set('x-token', token || '');
     const body = {
       precio: producto.precio,
       nombre: producto.nombre,
-      categoria: {
-        nombre: producto.categoria,
-      },
-      usuario: {
-        nombre: producto.usuario,
-      },
+      categoria: producto.categoriId,
+      usuario: producto.usuarioId,
     };
 
-    console.log({ headers });
-
-    this.http.put(url, body, { headers }).subscribe(
-      (response) => {
-        console.log('Cambios guardados exitosamente:', response);
+    this.http.put(url, body, { headers }).subscribe({
+      next: (response: any) => {
+        this.token = response.token;
+        alert('Cambios guardados exitosamente');
       },
-      (error) => {
-        console.error('Error al guardar cambios:', error);
-      }
-    );
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

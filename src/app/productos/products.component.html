@@ -21,8 +21,8 @@
         <input type="text" [(ngModel)]="producto.nombre" />
       </td>
       <td><input type="text" [(ngModel)]="producto.precio" /></td>
-      <td><input type="text" [(ngModel)]="producto.categoria" /></td>
-      <td><input type="text" [(ngModel)]="producto.usuario" /></td>
+      <td><input type="text" [(ngModel)]="producto.categoria" disabled /></td>
+      <td><input type="text" [(ngModel)]="producto.usuario" disabled /></td>
       <td>
         <button class="btn btn-primary" (click)="guardarCambios(producto)">
           Guardar
