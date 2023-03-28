@@ -12,6 +12,7 @@ import { LoginComponent } from './login/Login.component';
 import { VerUsuarioComponent } from './detalles-usuario/ver-usuario.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateProductComponent } from './crear-producto/create-product.component';
+import { CreateCategorie } from './crear-categoria/create-categoriy.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CreateProductComponent } from './crear-producto/create-product.componen
     LoginComponent,
     VerUsuarioComponent,
     CreateProductComponent,
+    CreateCategorie,
   ],
   imports: [
     BrowserModule,

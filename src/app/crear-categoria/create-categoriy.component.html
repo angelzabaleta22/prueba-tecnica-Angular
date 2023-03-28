@@ -1,6 +1,9 @@
 <div class="corner-btn">
   <button class="btn btn-warning" (click)="volver()">Atrás</button>
 </div>
+<button type="button" class="btn btn-dark log-out" (click)="logout()">
+  Cerrar sesión
+</button>
 <div class="create-categorieInfo">
   <th colspan="10" class="title">CREA UNA CATEGORÍA NUEVA</th>
 
@@ -14,11 +17,19 @@
     </thead>
     <tbody class="form">
       <td>
-        <input input type="text" />
+        <input
+          type="text"
+          placeholder="Nombre del producto"
+          [(ngModel)]="nuevaCategoria.nombre"
+        />
       </td>
       <td class="actions">
-        <button class="btn btn-primary bt1">Guardar</button>
-        <button class="btn btn-success bt2">Cancelar</button>
+        <button class="btn btn-primary bt1" (click)="crearCategoria()">
+          Guardar
+        </button>
+        <button class="btn btn-success bt2" (click)="cancelarCambios()">
+          Cancelar
+        </button>
       </td>
     </tbody>
   </table>

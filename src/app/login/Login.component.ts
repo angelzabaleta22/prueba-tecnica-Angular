@@ -38,10 +38,12 @@ export class LoginComponent {
         this.token = response.token;
         localStorage.setItem('userId', response.userId);
         localStorage.setItem('token', this.token);
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['']);
       },
       error: (error) => {
-        console.error(error);
+        console.log(error);
+
+        alert('Error al iniciar sesión: Verifica tus datos');
       },
     });
   }

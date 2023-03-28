@@ -64,3 +64,8 @@ th {
 button {
   margin-right: 10px;
 }
+.log-out {
+  margin-right: 4vh;
+  margin-top: 2vh;
+  float: right;
+}

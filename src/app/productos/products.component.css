@@ -62,3 +62,8 @@ button {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.log-out {
+  margin-right: 4vh;
+  margin-top: 2vh;
+  float: right;
+}

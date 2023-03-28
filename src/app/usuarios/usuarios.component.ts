@@ -16,7 +16,13 @@ export class UsuariosComponent implements OnInit {
   totalPaginas = 0;
 
   ngOnInit(): void {
-    this.obtenerUsuarios();
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+    if (!userId || !token) {
+      this.router.navigate(['/login']);
+    } else {
+      this.obtenerUsuarios();
+    }
   }
 
   constructor(
@@ -59,6 +65,9 @@ export class UsuariosComponent implements OnInit {
         };
       },
       error: (error: any) => {
+        alert(
+          'Error al crear usuario. Verifica los datos o que el usuario no esté creado '
+        );
         console.log('Error al crear usuario:', error);
       },
       complete: () => {

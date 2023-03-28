@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Location } from '@angular/common';
+import { AuthenticationService } from '../../service/logout.service';
 
 interface Producto {
   _id: string;
@@ -32,7 +33,13 @@ export class ProductsComponent implements OnInit {
   token = environment.tokenKey;
 
   ngOnInit(): void {
-    this.getProducts();
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+    if (!userId || !token) {
+      this.router.navigate(['/login']);
+    } else {
+      this.getProducts();
+    }
   }
 
   constructor(
@@ -40,7 +47,8 @@ export class ProductsComponent implements OnInit {
     private productsService: ProductsService,
     private router: Router,
     private http: HttpClient,
-    private location: Location
+    private location: Location,
+    private authService: AuthenticationService
   ) {}
 
   getProducts(pagina: number = 0, limitePorPagina: number = 50) {
@@ -108,5 +116,8 @@ export class ProductsComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+  logout() {
+    this.authService.logout();
   }
 }

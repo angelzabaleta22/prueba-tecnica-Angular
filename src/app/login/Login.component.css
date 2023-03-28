@@ -3,3 +3,11 @@
   background-size: cover;
   background-attachment: fixed;
 }
+
+.corner-btn {
+  position: absolute;
+  top: 0;
+  left: 3vh;
+  margin: 10px;
+  z-index: 1;
+}

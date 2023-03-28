@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/service/products.service';
 import { Producto } from '../models/nuevoProducto.model';
-/* import { Categorie } from '../models/categoria-model';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; */
+import { AuthenticationService } from '../../service/logout.service';
 
 @Component({
   selector: 'app-createProduct',
@@ -21,8 +20,19 @@ export class CreateProductComponent {
 
   constructor(
     private router: Router,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private authService: AuthenticationService
   ) {}
+
+  ngOnInit(): void {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+    if (!userId || !token) {
+      this.router.navigate(['/login']);
+    } else {
+      this.crearProducto();
+    }
+  }
 
   crearProducto() {
     this.productsService.crearProducto(this.nuevoProducto).subscribe({
@@ -64,5 +74,9 @@ export class CreateProductComponent {
 
   volver(): void {
     this.router.navigate(['']);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
