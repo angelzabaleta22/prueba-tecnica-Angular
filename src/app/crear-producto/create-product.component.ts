@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/service/products.service';
 import { Producto } from '../models/nuevoProducto.model';
+/* import { Categorie } from '../models/categoria-model';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; */
 
 @Component({
   selector: 'app-createProduct',
@@ -12,7 +14,10 @@ export class CreateProductComponent {
   nuevoProducto: Producto = {
     nombre: '',
     precio: 0,
+    categoria: '',
   };
+
+  categorias: any[] = [];
 
   constructor(
     private router: Router,
@@ -22,11 +27,10 @@ export class CreateProductComponent {
   crearProducto() {
     this.productsService.crearProducto(this.nuevoProducto).subscribe({
       next: (data: any) => {
-        console.log(data);
-
         this.nuevoProducto = {
           nombre: '',
           precio: 0,
+          categoria: '',
         };
       },
       error: (error: any) => {
@@ -34,7 +38,27 @@ export class CreateProductComponent {
       },
       complete: () => {
         alert('El producto ha sido creado correctamente');
+        this.router.navigate(['/productos']);
       },
+    });
+  }
+  onNombreChange($event: Event) {
+    this.nuevoProducto.nombre = ($event.target as HTMLInputElement)?.value;
+  }
+
+  onPrecioChange($event: Event) {
+    this.nuevoProducto.precio = Number(
+      ($event.target as HTMLInputElement)?.value
+    );
+  }
+
+  onCategoriaChange($event: Event) {
+    this.nuevoProducto.categoria = ($event.target as HTMLSelectElement)?.value;
+  }
+
+  obtenerCatergorias() {
+    this.productsService.obtenerCatergorias().subscribe((data: any) => {
+      this.categorias = data.categorias;
     });
   }
 

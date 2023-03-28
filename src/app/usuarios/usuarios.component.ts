@@ -50,7 +50,6 @@ export class UsuariosComponent implements OnInit {
   crearUsuario() {
     this.usuariosService.crearUsuario(this.nuevoUsuario).subscribe({
       next: (data: any) => {
-        console.log('Usuario creado:', data);
         this.nuevoUsuario = {
           rol: 'ADMIN_ROLE',
           nombre: '',

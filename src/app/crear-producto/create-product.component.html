@@ -11,24 +11,41 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Categoría</th>
-        <th>Usuario</th>
+
         <th class="actions">Guardar</th>
       </tr>
     </thead>
     <tbody class="form">
       <tr>
         <td>
-          <input type="text" placeholder="Nombre del producto" />
+          <input
+            type="text"
+            placeholder="Nombre del producto"
+            [(ngModel)]="nuevoProducto.nombre"
+          />
         </td>
-        <td><input type="text" placeholder="Precio del producto" /></td>
         <td>
-          <select>
-            <option value="opcion1">COMIDAS RAPIDAS</option>
-            <option value="opcion2">COMIDA PROCESADA</option>
-            <option value="opcion3">COMIDA AFRICANA</option>
+          <input
+            type="text"
+            placeholder="Precio del producto"
+            [(ngModel)]="nuevoProducto.precio"
+          />
+        </td>
+        <td>
+          <select
+            (click)="obtenerCatergorias()"
+            #selectCategoria
+            (change)="nuevoProducto.categoria = selectCategoria.value"
+          >
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option
+              *ngFor="let categoria of categorias"
+              [value]="categoria._id"
+            >
+              {{ categoria.nombre }}
+            </option>
           </select>
         </td>
-        <td><input type="text" disabled /></td>
         <td>
           <button class="btn btn-primary" (click)="crearProducto()">
             Guardar

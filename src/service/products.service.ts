@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../app/models/nuevoProducto.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -20,9 +21,14 @@ export class ProductsService {
   }
 
   crearProducto(producto: Producto) {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('x-token', token || '');
     const url = `${this.apiUrl}/productos`;
-    console.log(url);
+    return this.http.post(url, producto, { headers });
+  }
 
-    return this.http.post(url, producto);
+  obtenerCatergorias() {
+    const url = `${this.apiUrl}/categorias`;
+    return this.http.get(url);
   }
 }
