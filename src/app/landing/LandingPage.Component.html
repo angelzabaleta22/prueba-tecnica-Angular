@@ -76,4 +76,59 @@
       </div>
     </div>
   </div>
+  <main>
+    <div class="container p-lg-4 col-md-12 titleForm">
+      <h3>SI NO TIENES UNA CUENTA, ¡REGÍSTRATE!</h3>
+    </div>
+
+    <div class="form-container">
+      <form (ngSubmit)="crearUsuario()" *ngIf="nuevoUsuario">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            placeholder="Escribe tu nombre"
+            maxlength="30"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            required
+            [(ngModel)]="nuevoUsuario.nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo:</label>
+          <input
+            type="email"
+            maxlength="50"
+            placeholder="ejemplo@hotmail.com"
+            class="form-control"
+            id="correo"
+            name="correo"
+            required
+            [(ngModel)]="nuevoUsuario.correo"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input
+            type="password"
+            placeholder="La contraseña debe tener al menos 6 caracteres"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+            [(ngModel)]="nuevoUsuario.password"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="padding: 6px 125px; font-size: 16px; font-weight: bold"
+        >
+          Crear usuario
+        </button>
+      </form>
+    </div>
+  </main>
 </div>

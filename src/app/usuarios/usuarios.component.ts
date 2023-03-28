@@ -53,29 +53,6 @@ export class UsuariosComponent implements OnInit {
     this.obtenerUsuarios(pagina);
   }
 
-  crearUsuario() {
-    this.usuariosService.crearUsuario(this.nuevoUsuario).subscribe({
-      next: (data: any) => {
-        this.nuevoUsuario = {
-          rol: 'ADMIN_ROLE',
-          nombre: '',
-          correo: '',
-          password: '',
-          uid: '',
-        };
-      },
-      error: (error: any) => {
-        alert(
-          'Error al crear usuario. Verifica los datos o que el usuario no esté creado '
-        );
-        console.log('Error al crear usuario:', error);
-      },
-      complete: () => {
-        alert('El usuario ha sido creado correctamente');
-      },
-    });
-  }
-
   verUsuario(uid: string) {
     this.usuariosService.obtenerUsuario(uid).subscribe((response: any) => {
       const usuario = response.results[0];
