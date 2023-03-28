@@ -7,6 +7,7 @@ import { ProductsComponent } from './productos/products.component';
 import { VerUsuarioComponent } from './detalles-usuario/ver-usuario.component';
 import { LandingPageComponent } from './landing/LandingPage.Component';
 import { LoginComponent } from './login/Login.component';
+import { CreateProductComponent } from './crear-producto/create-product.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'usuarios/:uid', component: VerUsuarioComponent },
   { path: 'categorias', component: CategoriesComponent },
   { path: 'productos', component: ProductsComponent },
+  { path: 'createproduct', component: CreateProductComponent },
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { LandingPageComponent } from './landing/LandingPage.Component';
 import { LoginComponent } from './login/Login.component';
 import { VerUsuarioComponent } from './detalles-usuario/ver-usuario.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { CreateProductComponent } from './crear-producto/create-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     LandingPageComponent,
     LoginComponent,
     VerUsuarioComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,

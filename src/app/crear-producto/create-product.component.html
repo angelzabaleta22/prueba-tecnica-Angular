@@ -1,0 +1,40 @@
+<div class="corner-btn">
+  <button class="btn btn-warning" (click)="volver()">Atrás</button>
+</div>
+<div class="productsInfo">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="10" class="title">CREA UN PRODUCTO NUEVO</th>
+      </tr>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Categoría</th>
+        <th>Usuario</th>
+        <th class="actions">Guardar</th>
+      </tr>
+    </thead>
+    <tbody class="form">
+      <tr>
+        <td>
+          <input type="text" placeholder="Nombre del producto" />
+        </td>
+        <td><input type="text" placeholder="Precio del producto" /></td>
+        <td>
+          <select>
+            <option value="opcion1">COMIDAS RAPIDAS</option>
+            <option value="opcion2">COMIDA PROCESADA</option>
+            <option value="opcion3">COMIDA AFRICANA</option>
+          </select>
+        </td>
+        <td><input type="text" disabled /></td>
+        <td>
+          <button class="btn btn-primary" (click)="crearProducto()">
+            Guardar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
