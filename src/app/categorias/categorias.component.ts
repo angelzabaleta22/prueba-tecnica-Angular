@@ -54,7 +54,7 @@ export class CategoriesComponent {
           return {
             ...categoria,
             categoria: categoria.nombre,
-            categoriId: categoria._id,
+            _id: categoria._id,
             usuario: categoria.usuario.nombre,
             usuarioId: categoria.usuario._id,
           };
@@ -71,11 +71,12 @@ export class CategoriesComponent {
     const headers = new HttpHeaders().set('x-token', token || '');
     const body = {
       nombre: categoria.nombre,
-      categoriaId: categoria._id,
     };
 
     this.http.put(url, body, { headers }).subscribe({
       next: (response: any) => {
+        console.log('response', response);
+
         this.token = response.token;
         alert('Cambios guardados exitosamente');
         location.reload();
@@ -99,7 +100,7 @@ export class CategoriesComponent {
         location.reload();
       },
       error: (error) => {
-        console.error(error);
+        console.log(error);
       },
     });
   }

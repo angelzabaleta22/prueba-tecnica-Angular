@@ -14,8 +14,8 @@ export class CategoriesService {
 
   getCategories(page: number = 0, pageSize: number = 50) {
     const desde = (page - 1) * pageSize;
-    const url = `${this.apiUrl}/categorias?desde=${page}&limite=${pageSize}`;
-    const params = { page: page.toString(), pageSize: pageSize.toString() };
+    const url = `${this.apiUrl}/categorias?desde=${desde}&limite=${pageSize}`;
+    const params = { desde: desde.toString(), pageSize: pageSize.toString() };
 
     return this.http.get(url, { params });
   }

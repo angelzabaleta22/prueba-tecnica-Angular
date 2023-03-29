@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ProductsService } from 'src/service/products.service';
 import { Producto } from '../models/nuevoProducto.model';
 import { AuthenticationService } from '../../service/logout.service';
+import { CategoriesService } from '../../service/categories.service';
 
 @Component({
   selector: 'app-createProduct',
@@ -21,7 +22,8 @@ export class CreateProductComponent {
   constructor(
     private router: Router,
     private productsService: ProductsService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private categoriesService: CategoriesService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class CreateProductComponent {
     if (!userId || !token) {
       this.router.navigate(['/login']);
     } else {
-      this.obtenerCatergorias();
+      this.getCategories();
     }
   }
 
@@ -67,8 +69,8 @@ export class CreateProductComponent {
     this.nuevoProducto.categoria = ($event.target as HTMLSelectElement)?.value;
   }
 
-  obtenerCatergorias() {
-    this.productsService.obtenerCatergorias().subscribe((data: any) => {
+  getCategories() {
+    this.categoriesService.getCategories().subscribe((data: any) => {
       this.categorias = data.categorias;
     });
   }
