@@ -45,6 +45,7 @@ export class CreateProductComponent {
       },
       error: (error: any) => {
         console.log('Error al crear el producto:', error);
+        alert('Error al crear el producto: ' + JSON.stringify(error.error.msg));
       },
       complete: () => {
         alert('El producto ha sido creado correctamente');
