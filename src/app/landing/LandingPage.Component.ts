@@ -39,14 +39,14 @@ export class LandingPageComponent {
           uid: '',
         };
       },
-      error: (error: any) => {
-        alert(
-          'Error al crear usuario. Verifica los datos o que el usuario no esté creado '
-        );
-        console.log('Error al crear usuario:', error);
+      error: (url: any) => {
+        alert('Error al crear usuario: ' + url.error.errors[0].msg);
+
+        /* console.log(url.error.errors[0].msg); */
       },
       complete: () => {
         alert('El usuario ha sido creado correctamente');
+        this.router.navigate(['/login']);
       },
     });
   }

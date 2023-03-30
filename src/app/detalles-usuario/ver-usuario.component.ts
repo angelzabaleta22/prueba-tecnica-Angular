@@ -48,8 +48,11 @@ export class VerUsuarioComponent implements OnInit {
   }
 
   actualizarUsuario(uid: string, usuario: VerUsuario): void {
+    if (!this.usuario.nombre || !this.usuario.correo) {
+      alert('Por favor, los campos no deben estar vacíos.');
+      return;
+    }
     usuario.uid = uid;
-
     this.updateUser.actualizarUsuario(uid, usuario).subscribe(
       () => {
         alert('Usuario actualizado correctamente');

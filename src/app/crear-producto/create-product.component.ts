@@ -37,6 +37,14 @@ export class CreateProductComponent {
   }
 
   crearProducto() {
+    if (
+      !this.nuevoProducto.precio ||
+      !this.nuevoProducto.nombre ||
+      !this.nuevoProducto.categoria
+    ) {
+      alert('Por favor, los campos no deben estar vacíos.');
+      return;
+    }
     this.productsService.crearProducto(this.nuevoProducto).subscribe({
       next: (data: any) => {
         this.nuevoProducto = {
@@ -45,9 +53,10 @@ export class CreateProductComponent {
           categoria: '',
         };
       },
-      error: (error: any) => {
-        console.log('Error al crear el producto:', error);
-        alert('Error al crear el producto: ' + JSON.stringify(error.error.msg));
+      error: (t: any) => {
+        for (const error of t.error.errors) {
+          console.log('Error al crear el producto por que: ' + error.msg);
+        }
       },
       complete: () => {
         alert('El producto ha sido creado correctamente');

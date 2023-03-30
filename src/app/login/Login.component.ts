@@ -40,10 +40,11 @@ export class LoginComponent {
         localStorage.setItem('token', this.token);
         this.router.navigate(['']);
       },
-      error: (error) => {
-        console.log(error);
-
-        alert('Error al iniciar sesión: Verifica tus datos');
+      error: (url) => {
+        const errorMsg = url.error.errors
+          ? url.error.errors[0].msg
+          : url.error.msg;
+        alert('Error al iniciar sesión: ' + errorMsg);
       },
     });
   }

@@ -36,9 +36,7 @@
           <strong>Correo: </strong>
           <input type="text" [(ngModel)]="usuario.correo" />
         </p>
-        <p class="card-text">
-          <strong>Rol: </strong> <input type="text" [(ngModel)]="usuario.rol" />
-        </p>
+        <p class="card-text"><strong>Rol: </strong> {{ usuario.rol }}</p>
         <p class="card-text">
           <strong>Estado: </strong> {{ usuario.estado ? "Activo" : "Inactivo" }}
         </p>

@@ -75,14 +75,14 @@ export class CategoriesComponent {
 
     this.http.put(url, body, { headers }).subscribe({
       next: (response: any) => {
-        console.log('response', response);
-
         this.token = response.token;
         alert('Cambios guardados exitosamente');
         location.reload();
       },
-      error: (error) => {
-        console.error(error);
+      error: (url) => {
+        /* var errorMsg = url.error.errors[0].msg;
+        console.log(errorMsg); */
+        alert('Error al actualizar la categoría: ' + url.error.errors[0].msg);
       },
     });
   }

@@ -39,10 +39,8 @@ export class CreateCategorie {
           categoriaId: '',
         };
       },
-      error: (error) => {
-        alert(
-          'Error al crear la categoría: ' + JSON.stringify(error.error.msg)
-        );
+      error: (l) => {
+        alert('Error al crear la categoría: ' + l.error.errors[0].msg);
 
         alert;
       },

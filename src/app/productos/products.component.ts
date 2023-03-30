@@ -79,8 +79,16 @@ export class ProductsComponent implements OnInit {
   guardarCambios(producto: Producto) {
     const url = `${this.apiUrl}/productos/${producto._id}`;
     const token = localStorage.getItem('token');
-
     const headers = new HttpHeaders().set('x-token', token || '');
+    if (
+      !producto.precio ||
+      !producto.nombre ||
+      !producto.categoriId ||
+      !producto.usuarioId
+    ) {
+      alert('Por favor, los campos no deben estar vacíos.');
+      return;
+    }
     const body = {
       precio: producto.precio,
       nombre: producto.nombre,
@@ -94,28 +102,31 @@ export class ProductsComponent implements OnInit {
         alert('Cambios guardados exitosamente');
         location.reload();
       },
-      error: (error) => {
-        console.error(error);
+      error: (url) => {
+        /* console.error(url); */
+        alert('Error al guardar los cambios: ' + url.error.msg);
       },
     });
   }
 
   eliminarProducto(producto: Producto) {
-    const url = `${this.apiUrl}/productos/${producto._id}`;
-    const token = localStorage.getItem('token');
+    if (confirm('¿Estás seguro que deseas eliminar este producto?')) {
+      const url = `${this.apiUrl}/productos/${producto._id}`;
+      const token = localStorage.getItem('token');
 
-    const headers = new HttpHeaders().set('x-token', token || '');
+      const headers = new HttpHeaders().set('x-token', token || '');
 
-    this.http.delete(url, { headers }).subscribe({
-      next: (response: any) => {
-        this.token = response.token;
-        alert('Producto eliminado exitosamente');
-        location.reload();
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
+      this.http.delete(url, { headers }).subscribe({
+        next: (response: any) => {
+          this.token = response.token;
+          alert('Producto eliminado exitosamente');
+          location.reload();
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
+    }
   }
   logout() {
     this.authService.logout();
